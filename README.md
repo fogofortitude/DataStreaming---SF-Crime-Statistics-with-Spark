@@ -3,7 +3,7 @@
 <div class="index--atom--lmAIo layout--content--3Smmq">
 <div class="ltr">
 <div class="index-module--markdown--2MdcR ureact-markdown ">
-<h2 id="project-overview">Project Overview</h2>
+<h1 id="project-overview">Project Overview</h1>
 <p>In this project, you will be provided with a real-world dataset, extracted from Kaggle, on San Francisco crime incidents, and you will provide statistical analyses of the data using Apache Spark Structured Streaming. You will draw on the skills and knowledge you've learned in this course to create a Kafka server to produce data and ingest data through Spark Structured Streaming.</p>
 <p>You can try to answer the following questions with the dataset:</p>
 <ul>
@@ -80,6 +80,7 @@ scala -<span class="hljs-property">version</span>
 <div class="index--atom--lmAIo layout--content--3Smmq">
 <div class="ltr">
 <div class="index-module--markdown--2MdcR ureact-markdown ">
+<h1><span style="text-decoration: underline;">Project Directions</span></h1>
 <h2 id="starter-code">Starter Code</h2>
 <p>You can find three Python files that are starter code, the project dataset, and some other necessary resources in a zip file called "SF Crime Data Project Files" in the Resources tab in the left sidebar of your classroom:</p>
 <ul>
