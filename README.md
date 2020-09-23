@@ -152,17 +152,17 @@ export PATH=$JAVA_HOME/bin:$SPARK_HOME/bin:$SCALA_HOME/bin:$PATH
 
 <h4><strong>Workspace Environment</strong></h4>
 
-<ul>
-	<li>Check what topics exist use this:&nbsp;</li>
-</ul>
+<div style="background:#eeeeee; border:1px solid #cccccc; padding:5px 10px">Check what topics exist use this:&nbsp;</div>
 
-<p style="margin-left:80px"><code><span style="font-size:12px"><span style="font-family:Courier New,Courier,monospace">/usr/bin/kafka-topics --list --zookeeper localhost:2181</span></span></code></p>
+<div style="background:#eeeeee; border:1px solid #cccccc; padding:5px 10px"><code><span style="font-size:12px"><span style="font-family:Courier New,Courier,monospace">/usr/bin/kafka-topics --list --zookeeper localhost:2181</span></span></code></div>
 
-<ul>
-	<li>To start kafka-consumer-console, use this command</li>
-</ul>
+<p>&nbsp;</p>
 
-<p><span style="margin-left:80px"><span style="font-size:12px"><span style="font-family:Courier New,Courier,monospace">kafka-console-consumer --bootstrap-server localhost:9092&nbsp;--topic com.sf.police.event.calls --from-beginning</span></span></span></p>
+<div style="background:#eeeeee; border:1px solid #cccccc; padding:5px 10px">To start kafka-consumer-console, use this command</div>
+
+<div style="background:#eeeeee; border:1px solid #cccccc; padding:5px 10px"><span style="font-size:12px"><span style="font-family:Courier New,Courier,monospace"><kbd>kafka-console-consumer --bootstrap-server localhost:9092 --topic com.sf.police.event.calls --whitelist com.sf.police.event.calls --from-beginning</kbd></span></span></div>
+
+<p>&nbsp;</p>
 
 <p><strong>Take a screenshot of your kafka-consumer-console output. You will need to include this screenshot as part of your project submission.</strong></p>
 
