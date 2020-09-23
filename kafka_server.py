@@ -1,6 +1,6 @@
 import producer_server
 
-TOPIC_NAME = 'com.sf.police.service.calls'
+TOPIC_NAME = 'com.sf.police.event.calls'
 SERVER_URL = 'localhost:9092'
 CLIENT_ID = 'com.udacity.dep.police.broker'
 
