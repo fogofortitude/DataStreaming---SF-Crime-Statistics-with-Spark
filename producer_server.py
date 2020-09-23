@@ -29,9 +29,9 @@ class ProducerServer(KafkaProducer):
             for line in file:
                 message = self.dict_to_binary(line)
                 # TODO send the correct data
-                data = json.load(file)  #clarify why we have reassigned to data attribute
-                self.topic, message
-                self.send()
+                data = json.load(file)  
+                self.topic, message 
+                self.send() # send data to a broker.
                 time.sleep(1)
 
     # TODO fill this in to return the json dictionary to binary
