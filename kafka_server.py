@@ -8,11 +8,10 @@ def run_kafka_server():
 	# TODO get the json file path
     input_file = "./police-department-calls-for-service.json"
 
-    ''' client id: is used as an identifier for the client application. It will be used when logging errors, monitoring aggregates. 
-     	it acts as a logical grouping across all requests from a particular client.
-     	for exmample; one might want to monitor not just the requests per second overall, but the number coming from each client application 
-	(each of which could reside on multiple servers). 
-    '''
+    # client id: is used as an identifier for the client application. It will be used when logging errors, monitoring aggregates. 
+    # it acts as a logical grouping across all requests from a particular client.
+    # for exmample; one might want to monitor not just the requests per second overall, but the number coming from each client application 
+    # (each of which could reside on multiple servers). 
 
     producer = producer_server.ProducerServer(
         input_file=input_file,
