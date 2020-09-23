@@ -10,6 +10,7 @@ import time
 # To read from the Topics we will require a Consumer
 # Consumers read the messages of a set of partitions of a topic of their choice at their own pace. 
 # If the consumer is part of a consumer group,i.e. a group of consumers subscribed to the same topic, they can commit their offset. 
+# The offset is the position in the log where the consumer last consumed or read a message. 
 
 class ProducerServer(KafkaProducer):
 
