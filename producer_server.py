@@ -5,6 +5,12 @@ import time
 # Producers produce messages to a topic of their choice. 
 # It is possible to attach a key to each message, in which case the producer guarantees that all messages with the same key will arrive to the same partition.
 
+# Topics are logs that receive data from the producers and store them across their partitions. Producers always write new messages at the end of the log.
+
+# To read from the Topics we will require a Consumer
+# Consumers read the messages of a set of partitions of a topic of their choice at their own pace. 
+# If the consumer is part of a consumer group,i.e. a group of consumers subscribed to the same topic, they can commit their offset. 
+
 class ProducerServer(KafkaProducer):
 
     def __init__(self, input_file, topic, **kwargs):
