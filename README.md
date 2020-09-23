@@ -1,3 +1,88 @@
+
+Search
+ 
+ 
+HTML CSS JavaScript jQuery PHP Bootstrap Google MySQL Image
+HTML
+Rainbow Text Generator
+Select List Menu Generator
+Select Option List Generator
+Table Generator
+Marquee Generator
+Typing Animation Typewriter
+Image SlideShow Generator
+Website Copyright Generator
+Show Hide Element Generator
+Popup Window Generator
+Page Redirect Generator
+Mouseover Image Generator
+iFrame Code Generator
+Meta Tag Generator
+Alert Message Generator
+History Back Forward Button
+Link Code Generator
+HTML Code Decompressor
+HTML Code Compressor
+HTML Editor With Preview
+HTML Online Editor
+HTML To Javascript
+HTML To Text
+HTML Code Encryptor Decryptor
+Color Code Color Names
+Right Click,Text Select Disable code
+HTML Codes
+Country names Drop Down List
+Currency name Drop Down List
+Languages name Drop Down List
+Year month date Drop Down List
+
+ 
+
+ 
+HTML online editor
+HTML online editor
+
+3 Comments
+
+
+ 
+  
+Donate with PayPal button
+3 comments
+Leave a Reply
+Name *
+Email (will not be published) *
+Website
+Comment *
+submit
+HTML Editor
+HTML Editor With Preview
+HTML Online Editor
+Tools
+URL Decoder Encoder
+HTML Code Decompressor
+HTML Code Compressor
+CSS Code Decompressor
+CSS Code Compressor
+JavaScript Code Compressor
+JavaScript Code Decompressor
+
+ 
+Converter
+HTML To Javascript
+HTML To Text
+Letter Case Converter
+Image To Data URI
+Byte Converter
+Web Tools
+URL Extractor
+Calculator
+Online Age Calculator
+Home | About | Contact | Terms of Use | Privacy Policy
+Copyright © 2016 - 2020 www.html-code-generator.com
+
+Formatting applied
+Code ×
 <h1>Project Overview</h1>
 
 <p>In this project, you will be provided with a real-world dataset, extracted from Kaggle, on San Francisco crime incidents, and you will provide statistical analyses of the data using Apache Spark Structured Streaming. You will draw on the skills and knowledge you&#39;ve learned in this course to create a Kafka server to produce data and ingest data through Spark Structured Streaming.</p>
@@ -21,38 +106,38 @@
     <li>Python 3.6.x or 3.7.x</li>
 </ul>
 
-<h4>Environment Setup (Only Necessary if You Want to Work on the Project Locally on Your Own Machine)</h4>
+<h4><strong>Environment Setup (Only Necessary if You Want to Work on the Project Locally on Your Own Machine)</strong></h4>
 
-<h5>For Macs or Linux:</h5>
+<h5><span style="color:#7f8c8d">For Macs or Linux:</span></h5>
 
 <ul>
-    <li>Download Spark from&nbsp;<a href="https://spark.apache.org/downloads.html" rel="nofollow">https://spark.apache.org/downloads.html</a>. Choose &quot;Prebuilt for Apache Hadoop 2.7 and later.&quot;</li>
-    <li>Unpack Spark in one of your folders (I usually put all my dev requirements in /home/users/user/dev).</li>
-    <li>Download binary for Kafka from this location&nbsp;<a href="https://kafka.apache.org/downloads" rel="nofollow">https://kafka.apache.org/downloads</a>, with Scala 2.11, version 2.3.0. Unzip in your local directory where you unzipped your Spark binary as well. Exploring the Kafka folder, you&rsquo;ll see the scripts to execute in&nbsp;<code>bin</code>&nbsp;folders, and config files under&nbsp;<code>config</code>&nbsp;folder. You&rsquo;ll need to modify&nbsp;<code>zookeeper.properties</code>&nbsp;and&nbsp;<code>server.properties</code>.</li>
-    <li>Download Scala from the official site, or for Mac users, you can also use&nbsp;<code>brew install scala</code>, but make sure you download version 2.11.x.</li>
-    <li>Run below to verify correct versions:
+    <li><span style="color:#7f8c8d">Download Spark from&nbsp;</span><a href="https://spark.apache.org/downloads.html" rel="nofollow"><span style="color:#7f8c8d">https://spark.apache.org/downloads.html</span></a><span style="color:#7f8c8d">. Choose &quot;Prebuilt for Apache Hadoop 2.7 and later.&quot;</span></li>
+    <li><span style="color:#7f8c8d">Unpack Spark in one of your folders (I usually put all my dev requirements in /home/users/user/dev).</span></li>
+    <li><span style="color:#7f8c8d">Download binary for Kafka from this location&nbsp;</span><a href="https://kafka.apache.org/downloads" rel="nofollow"><span style="color:#7f8c8d">https://kafka.apache.org/downloads</span></a><span style="color:#7f8c8d">, with Scala 2.11, version 2.3.0. Unzip in your local directory where you unzipped your Spark binary as well. Exploring the Kafka folder, you&rsquo;ll see the scripts to execute in&nbsp;<code>bin</code>&nbsp;folders, and config files under&nbsp;<code>config</code>&nbsp;folder. You&rsquo;ll need to modify&nbsp;<code>zookeeper.properties</code>&nbsp;and&nbsp;<code>server.properties</code>.</span></li>
+    <li><span style="color:#7f8c8d">Download Scala from the official site, or for Mac users, you can also use&nbsp;<code>brew install scala</code>, but make sure you download version 2.11.x.</span></li>
+    <li><span style="color:#7f8c8d">Run below to verify correct versions:</span>
     <pre>
-<code>java -version
+<span style="color:#7f8c8d"><code>java -version
 scala -version
-</code></pre>
+</code></span></pre>
     </li>
-    <li>Make sure your ~/.bash_profile looks like below (might be different depending on your directory):
+    <li><span style="color:#7f8c8d">Make sure your ~/.bash_profile looks like below (might be different depending on your directory):</span>
     <pre>
-<code>export SPARK_HOME=/Users/dev/spark-2.4.3-bin-hadoop2.7
+<span style="color:#7f8c8d"><code>export SPARK_HOME=/Users/dev/spark-2.4.3-bin-hadoop2.7
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home
 export SCALA_HOME=/usr/local/scala/
 export PATH=$JAVA_HOME/bin:$SPARK_HOME/bin:$SCALA_HOME/bin:$PATH
-</code></pre>
+</code></span></pre>
     </li>
 </ul>
 
-<h5>For Windows:</h5>
+<h5><span style="color:#7f8c8d">For Windows:</span></h5>
 
-<p>Please follow the directions found in this helpful StackOverflow post:&nbsp;<a href="https://stackoverflow.com/questions/25481325/how-to-set-up-spark-on-windows" rel="nofollow">https://stackoverflow.com/questions/25481325/how-to-set-up-spark-on-windows</a></p>
+<p><span style="color:#7f8c8d">Please follow the directions found in this helpful StackOverflow post:&nbsp;</span><a href="https://stackoverflow.com/questions/25481325/how-to-set-up-spark-on-windows" rel="nofollow"><span style="color:#7f8c8d">https://stackoverflow.com/questions/25481325/how-to-set-up-spark-on-windows</span></a></p>
 
-<p><a href="https://camo.githubusercontent.com/8ee26710f6cf010112264f40b4e3e98c1e975ed1/68747470733a2f2f766964656f2e756461636974792d646174612e636f6d2f746f706865722f323031392f4175677573742f35643531393861325f73637265656e2d73686f742d323031392d30382d31322d61742d392e34392e31352d616d2f73637265656e2d73686f742d323031392d30382d31322d61742d392e34392e31352d616d2e706e67" rel="noopener noreferrer" target="_blank"><img alt="" data-canonical-src="https://video.udacity-data.com/topher/2019/August/5d5198a2_screen-shot-2019-08-12-at-9.49.15-am/screen-shot-2019-08-12-at-9.49.15-am.png" src="https://camo.githubusercontent.com/8ee26710f6cf010112264f40b4e3e98c1e975ed1/68747470733a2f2f766964656f2e756461636974792d646174612e636f6d2f746f706865722f323031392f4175677573742f35643531393861325f73637265656e2d73686f742d323031392d30382d31322d61742d392e34392e31352d616d2f73637265656e2d73686f742d323031392d30382d31322d61742d392e34392e31352d616d2e706e67" style="width:452px" /></a></p>
+<p><a href="https://camo.githubusercontent.com/8ee26710f6cf010112264f40b4e3e98c1e975ed1/68747470733a2f2f766964656f2e756461636974792d646174612e636f6d2f746f706865722f323031392f4175677573742f35643531393861325f73637265656e2d73686f742d323031392d30382d31322d61742d392e34392e31352d616d2f73637265656e2d73686f742d323031392d30382d31322d61742d392e34392e31352d616d2e706e67" rel="noopener noreferrer" target="_blank"><span style="color:#7f8c8d"><img alt="" data-canonical-src="https://video.udacity-data.com/topher/2019/August/5d5198a2_screen-shot-2019-08-12-at-9.49.15-am/screen-shot-2019-08-12-at-9.49.15-am.png" src="https://camo.githubusercontent.com/8ee26710f6cf010112264f40b4e3e98c1e975ed1/68747470733a2f2f766964656f2e756461636974792d646174612e636f6d2f746f706865722f323031392f4175677573742f35643531393861325f73637265656e2d73686f742d323031392d30382d31322d61742d392e34392e31352d616d2f73637265656e2d73686f742d323031392d30382d31322d61742d392e34392e31352d616d2e706e67" style="width:452px" /></span></a></p>
 
-<p>SF Crime Data</p>
+<p><span style="color:#7f8c8d">SF Crime Data</span></p>
 
 <h1>Project Directions</h1>
 
@@ -96,25 +181,23 @@ export PATH=$JAVA_HOME/bin:$SPARK_HOME/bin:$SCALA_HOME/bin:$PATH
 
 <p>This project requires creating topics, starting Zookeeper and Kafka servers, and your Kafka bootstrap server. You&rsquo;ll need to choose a port number (e.g., 9092, 9093..) for your Kafka topic, and come up with a Kafka topic name and modify the zookeeper.properties and server.properties appropriately.</p>
 
-<h4><span style="color:#95a5a6"><strong>Local Environment</strong></span></h4>
+<h4><span style="color:#7f8c8d"><strong>Local Environment</strong></span></h4>
 
 <ul>
     <li>
-    <p><span style="color:#95a5a6">Install requirements using&nbsp;<code>./start.sh</code>&nbsp;if you use conda for Python. If you use pip rather than conda, then use&nbsp;<code>pip install -r requirements.txt</code>.</span></p>
+    <p><span style="color:#7f8c8d">Install requirements using&nbsp;<code>./start.sh</code>&nbsp;if you use conda for Python. If you use pip rather than conda, then use&nbsp;<code>pip install -r requirements.txt</code>.</span></p>
     </li>
     <li>
-    <p><span style="color:#95a5a6">Use the commands below to start the Zookeeper and Kafka servers. You can find the bin and config folder in the Kafka binary that you have downloaded and unzipped.</span></p>
-
-    <ul>
-        <li>
-        <pre>
-<span style="font-family:Courier New,Courier,monospace"><span style="color:#95a5a6"><code>bin/zookeeper-server-start.sh config/zookeeper.properties
-​​​​​bin/kafka-server-start.sh config/server.properties
-</code></span></span></pre>
-        </li>
-    </ul>
+    <p><span style="color:#7f8c8d">Use the commands below to start the Zookeeper and Kafka servers. You can find the bin and config folder in the Kafka binary that you have downloaded and unzipped.</span></p>
     </li>
-    <li><span style="color:#95a5a6">You can start the bootstrap server using this Python command:&nbsp;<code>python producer_server.py</code>.</span></li>
+</ul>
+
+<p style="margin-left:80px"><span><span style="font-size:12px"><span style="font-family:Courier New,Courier,monospace"><span style="color:#11161a"><span style="background-color:white">bin/zookeeper-server-start.sh config/zookeeper.properties</span></span></span></span></span></p>
+
+<p style="margin-left:80px"><span><span style="font-size:12px"><span style="font-family:Courier New,Courier,monospace"><span style="color:#11161a"><span style="background-color:white"><code>​​​​​bin/kafka-server-start.sh config/server.properties </code></span></span></span></span></span></p>
+
+<ul>
+    <li><span style="color:#7f8c8d">You can start the bootstrap server using this Python command:&nbsp;<code>python producer_server.py</code>.</span></li>
 </ul>
 
 <h4><strong>Workspace Environment</strong></h4>
@@ -122,8 +205,8 @@ export PATH=$JAVA_HOME/bin:$SPARK_HOME/bin:$SCALA_HOME/bin:$PATH
 <ul>
     <li>Modify the zookeeper.properties and producer.properties given to suit your topic and port number of your choice. Start up these servers in the terminal using the commands:
     <pre>
-<span style="font-size:12px"><span style="font-family:Courier New,Courier,monospace"><span style="color:#11161a"><span style="background-color:white"><em>/usr/bin/zookeeper-server-start /etc/kafka/zookeeper.properties
-</em></span></span><span style="background-color:white"><em><span style="color:#11161a">/usr/bin/</span></em></span>kafka-server-start /etc/kafka/server.properties</span></span>
+<span style="font-size:12px"><span style="font-family:Courier New,Courier,monospace"><span style="color:#11161a"><span style="background-color:white">/usr/bin/zookeeper-server-start /etc/kafka/zookeeper.properties
+</span></span><span style="background-color:white"><em><span style="color:#11161a">/usr/bin/</span></em></span>kafka-server-start /etc/kafka/server.properties</span></span>
 </pre>
     </li>
     <li>
@@ -144,31 +227,27 @@ export PATH=$JAVA_HOME/bin:$SPARK_HOME/bin:$SCALA_HOME/bin:$PATH
     <li>Complete the code for the server in&nbsp;<code>producer_server.py</code>&nbsp;and&nbsp;<code>kafka_server.py</code>.</li>
 </ul>
 
-<h4><strong><span style="color:#999999">Local Environment</span></strong></h4>
+<p><span style="color:#7f8c8d"><strong>Local Environment</strong></span></p>
 
 <ul>
-    <li><span style="color:#999999">To see if you correctly implemented the server, use the command&nbsp;</span>
-
-    <ul>
-        <li><span style="color:#999999">bin/kafka-console-consumer.sh --bootstrap-server localhost:&lt;your-port-number&gt; --topic &lt;your-topic-name&gt; --from-beginning&nbsp;to see your output.</span></li>
-    </ul>
-    </li>
+    <li>
+    <p><span style="color:#7f8c8d">To see if you correctly implemented the server, use the command&nbsp;</span></p>
+    <span style="font-size:12px"><span style="font-family:Courier New,Courier,monospace">bin/kafka-console-consumer.sh --bootstrap-server localhost:&lt;your-port-number&gt; --topic &lt;your-topic-name&gt; --from-beginning&nbsp;to see your output.</span></span></li>
 </ul>
 
 <h4><strong>Workspace Environment</strong></h4>
 
 <ul>
-    <li>Check what topics exist use this:&nbsp;
-    <ul>
-        <li><code><span style="font-size:12px"><span style="font-family:Courier New,Courier,monospace">/usr/bin/kafka-topics --list --zookeeper localhost:2181</span></span></code></li>
-    </ul>
-    </li>
-    <li>To start kafka-consumer-console, use this command
-    <ul>
-        <li><span style="font-family:Courier New,Courier,monospace"><span style="font-size:12px"><code>/usr/bin/kafka-consumer-console&nbsp;--topic com.sf.police.event.calls --from-beginning</code></span></span></li>
-    </ul>
-    </li>
+    <li>Check what topics exist use this:&nbsp;</li>
 </ul>
+
+<p style="margin-left:80px"><code><span style="font-size:12px"><span style="font-family:Courier New,Courier,monospace">/usr/bin/kafka-topics --list --zookeeper localhost:2181</span></span></code></p>
+
+<ul>
+    <li>To start kafka-consumer-console, use this command</li>
+</ul>
+
+<p><span style="margin-left:80px"><span style="font-size:12px"><span style="font-family:Courier New,Courier,monospace">kafka-console-consumer --bootstrap-server localhost:9092&nbsp;--topic com.sf.police.event.calls --from-beginning</span></span></span></p>
 
 <p><strong>Take a screenshot of your kafka-consumer-console output. You will need to include this screenshot as part of your project submission.</strong></p>
 
