@@ -107,9 +107,10 @@ export PATH=$JAVA_HOME/bin:$SPARK_HOME/bin:$SCALA_HOME/bin:$PATH
 	</li>
 </ul>
 
-<p style="margin-left:40px"><span style="color:#bdc3c7"><code><span style="font-size:12px"><span style="font-family:Courier New,Courier,monospace"><span style="background-color:white">bin/zookeeper-server-start.sh config/zookeeper.properties</span></span></span></code></span></p>
-
-<p><span style="color:#bdc3c7"><code><span style="margin-left:40px"><span style="font-size:12px"><span style="font-family:Courier New,Courier,monospace"><span style="background-color:white">​​​​​bin/kafka-server-start.sh config/server.properties </span></span></span></span></code></span></p>
+<pre>
+<span style="color:#7f8c8d"><code>bin/zookeeper-server-start.sh config/zookeeper.properties
+bin/kafka-server-start.sh config/server.properties
+</code></span></pre>
 
 <ul>
 	<li><span style="color:#bdc3c7">You can start the bootstrap server using this Python command:&nbsp;<code>python producer_server.py</code>.</span></li>
@@ -120,10 +121,13 @@ export PATH=$JAVA_HOME/bin:$SPARK_HOME/bin:$SCALA_HOME/bin:$PATH
 <ul>
 	<li>Modify the zookeeper.properties and producer.properties given to suit your topic and port number of your choice. Start up these servers in the terminal using the commands:
 	<pre>
-<span style="font-size:12px"><span style="font-family:Courier New,Courier,monospace"><span style="color:#11161a"><span style="background-color:white">/usr/bin/zookeeper-server-start /etc/kafka/zookeeper.properties
-/</span></span><span style="background-color:white"><em><span style="color:#11161a">usr/bin/</span></em></span>kafka-server-start /etc/kafka/server.properties</span></span>
-</pre>
-	</li>
+<span style="color:#7f8c8d"><code>
+/usr/bin/zookeeper-server-start /etc/kafka/zookeeper.properties
+kafka-server-start /etc/kafka/server.properties
+</code></span></pre>
+	</li>	
+</ul>
+<ul>
 	<li>
 	<p>You&rsquo;ll need to open up two terminal tabs to execute each command.</p>
 	</li>
@@ -146,8 +150,11 @@ export PATH=$JAVA_HOME/bin:$SPARK_HOME/bin:$SCALA_HOME/bin:$PATH
 
 <ul>
 	<li>
-	<p><span style="color:#7f8c8d">To see if you correctly implemented the server, use the command&nbsp;</span></p>
-	<span style="font-size:12px"><span style="font-family:Courier New,Courier,monospace">bin/kafka-console-consumer.sh --bootstrap-server localhost:&lt;your-port-number&gt; --topic &lt;your-topic-name&gt; --from-beginning&nbsp;to see your output.</span></span></li>
+	<p><span style="color:#7f8c8d">To see if you correctly implemented the server, use the command below to see your output&nbsp;</span></p>
+	<pre><span style="color:#7f8c8d"><code>
+bin/kafka-console-consumer.sh --bootstrap-server localhost:&lt;your-port-number&gt; --topic &lt;your-topic-name&gt; --from-beginning&nbsp
+</code></span></pre>		
+	</li>
 </ul>
 
 <h4><strong>Workspace Environment</strong></h4>
