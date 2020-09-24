@@ -24,12 +24,12 @@ class ProducerServer(KafkaProducer):
         print(self.topic)  # remove after testing
         with open(self.input_file) as file:
             # experiment with placement of data = json.load(file) 
-            # data = json.load(file) 
+            data = json.load(file) 
             
             for line in file:
                 message = self.dict_to_binary(line)
                 # TODO send the correct data
-                data = json.load(file)  
+                #data = json.load(file)  
                 self.topic, message 
                 self.send() # send data to a broker.
                 time.sleep(1)
