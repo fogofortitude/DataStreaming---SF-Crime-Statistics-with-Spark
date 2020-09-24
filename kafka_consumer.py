@@ -34,5 +34,5 @@ class ConsumerServer(KafkaConsumer):
             self.consumer.close()
             
 if __name__ == "__main__":
-    consumer = ConsumerServer("police.service.calls")
+    consumer = ConsumerServer("com.sf.police.event.calls")
     consumer.consume()
