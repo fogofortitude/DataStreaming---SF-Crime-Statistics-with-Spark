@@ -2,7 +2,7 @@ from kafka import KafkaConsumer
 
 
 bootstrap_servers = ['localhost:9092']
-topicName = 'com.udacity.project.sfcrimes'
+topicName = 'com.sf.police.event.calls'
 
 consumer = KafkaConsumer (topicName, group_id = 'group1',bootstrap_servers = bootstrap_servers,
 auto_offset_reset = 'earliest')
