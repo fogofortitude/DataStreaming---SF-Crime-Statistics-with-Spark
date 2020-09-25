@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#I sourced this code from Omar Ali - https://gist.github.com/owahab/9f081ec7938f51427cf84ba2aa9628f4
+
+set -e
+echo -n "Publishing dummy messages: "
+
+while true; do
+  echo -n "."
+  date=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+  message="{\"id\": \"$(uuidgen)\", \"created_at\": \"$date\", \"some_key\": \"some value\"}"
+  echo $message | kafkacat -P -b 0.0.0.0:9092 -t my_dummy_queue
+  sleep 0.8
+done
+
+echo
