@@ -140,8 +140,17 @@ kafka-server-start /etc/kafka/server.properties
 	</li>
 </ul>
 
-<h1><a id="user-content-step-1" class="anchor" href="https://github.com/fogofortitude/SF-Crime-Statistics-with-Spark#step-1" aria-hidden="true"></a>Step 1</h1>
+<div class="application-main " data-commit-hovercards-enabled="" data-discussion-hovercards-enabled="" data-issue-and-pr-hovercards-enabled="">
+<div class="">
+<div class="container-xl clearfix new-discussion-timeline px-3 px-md-4 px-lg-5">
+<div class="repository-content ">
+<div class="gutter-condensed gutter-lg flex-column flex-md-row d-flex">
+<div class="flex-shrink-0 col-12 col-md-9 mb-4 mb-md-0">
+<div id="readme" class="Box md js-code-block-container Box--responsive">
+<div class="Box-body px-5 pb-5">
+<article class="markdown-body entry-content container-lg">
 <p>&nbsp;</p>
+<h1><a id="user-content-step-1" class="anchor" href="https://github.com/fogofortitude/SF-Crime-Statistics-with-Spark#step-1" aria-hidden="true"></a>Step 1</h1>
 <ul>
 <li>The first step is to build a simple Kafka server.</li>
 <li>Complete the code for the server in&nbsp;<code>producer_server.py</code>&nbsp;and&nbsp;<code>kafka_server.py</code>.</li>
@@ -163,15 +172,15 @@ kafka-server-start /etc/kafka/server.properties
 <blockquote>kafka-server-start /etc/kafka/server.properties</blockquote>
 </li>
 <li>Create Topic <br />
-<blockquote><code>kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic topic com.sf.police.event.calls</code></blockquote>
+<blockquote><code>kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic com.sf.police.event.calls</code></blockquote>
 </li>
 <li>Checked the topic "com.sf.police.event.calls" now exists<br />
-<blockquote>/usr/bin/kafka-topics --list --zookeeper localhost:2181 --topic com.sf.police.event.calls</blockquote>
+<blockquote>/usr/bin/kafka-topics --list --zookeeper localhost:2181</blockquote>
 </li>
 <li>Run kafka-console-producer with Dummy JSON values<br />
 <blockquote>kafka-console-producer --broker-list localhost:9092 --topic com.sf.police.event.calls</blockquote>
 <p><em>{ "crime_id": "183653763", "original_crime_type_name": "Traffic Stop", "report_date": "2018-12-31T00:00:00.000","call_date": "2018-12-31T00:00:00.000","offense_date": "2018-12-31T00:00:00.000","call_time": "23:57","call_date_time": "2018-12-31T23:57:00.000","disposition": "ADM","address": "Geary Bl/divisadero St","city": "San Francisco","state": "CA","agency_id": "1","address_type": "Intersection","common_location": "" }</em></p>
-<em>{"crime_id":"183653745","original_crime_type_name":"Audible Alarm","report_date":"2018-12-31T00:00:00.000","call_date":"2018-12-31T00:00:00.000","offense_date":"2018-12-31T00:00:00.000","call_time":"23:47","call_date_time":"2018-12-31T23:47:00.000","disposition":"PAS","address":"1900 Block Of 18th Av","city":"San Francisco","state":"CA","agency_id":"1","address_type":"Premise Address","common_location":""}</em><br /><br /></li>
+<em>{"crime_id":"183653745","original_crime_type_name":"Audible Alarm","report_date":"2018-12-31T00:00:00.000","call_date":"2018-12-31T00:00:00.000","offense_date":"2018-12-31T00:00:00.000","call_time":"23:47","call_date_time":"2018-12-31T23:47:00.000","disposition":"PAS","address":"1900 Block Of 18th Av","city":"San Francisco","state":"CA","agency_id":"1","address_type":"Premise Address","common_location":""}</em><br /><br />{"crime_id":"183653706","original_crime_type_name":"Passing Call","report_date":"2018-12-31T00:00:00.000","call_date":"2018-12-31T00:00:00.000","offense_date":"2018-12-31T00:00:00.000","call_time":"23:34","call_date_time":"2018-12-31T23:34:00.000","disposition":"Not recorded","address":"1500 Block Of Haight St","city":"San Francisco","state":"CA","agency_id":"1","address_type":"Common Location","common_location":"Haight St Corridor, Sf"}</li>
 <li><span style="background-color: #ccffcc;"><span style="color: #008000;"><strong>TIP:</strong> use this to tool to convert multiline JSON layout to single line</span> https://tools.knowledgewalls.com/online-multiline-to-single-line-converter</span></li>
 <li>Run kafka-console-consumer
 <blockquote><code>kafka-console-consumer --bootstrap-server localhost:9092 --topic com.sf.police.event.calls --from-beginning</code></blockquote>
@@ -179,7 +188,22 @@ kafka-server-start /etc/kafka/server.properties
 </ul>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p>&nbsp;</p>
+<p><strong>Take a screenshot of your kafka-consumer-console output. You will need to include this screenshot as part of your project submission.</strong></p>
+<p><a href="https://camo.githubusercontent.com/aef6753be130a0dd9e6002030f7c97c5d163c7bb/68747470733a2f2f766964656f2e756461636974792d646174612e636f6d2f746f706865722f323031392f4175677573742f35643531396266635f73637265656e2d73686f742d323031392d30382d31322d61742d31302e30332e34312d616d2f73637265656e2d73686f742d323031392d30382d31322d61742d31302e30332e34312d616d2e706e67" rel="nofollow"><img src="https://camo.githubusercontent.com/aef6753be130a0dd9e6002030f7c97c5d163c7bb/68747470733a2f2f766964656f2e756461636974792d646174612e636f6d2f746f706865722f323031392f4175677573742f35643531396266635f73637265656e2d73686f742d323031392d30382d31322d61742d31302e30332e34312d616d2f73637265656e2d73686f742d323031392d30382d31322d61742d31302e30332e34312d616d2e706e67" alt="" width="400" height="200" /></a></p>
+<p><strong>Sample Kafka Consumer Console Output</strong></p>
+<code></code></article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer container-xl width-full p-responsive" role="contentinfo">
+<div class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">&nbsp;</div>
+<div class="d-flex flex-justify-center pb-6">&nbsp;</div>
+</div>
 
 <p><strong>Take a screenshot of your kafka-consumer-console output. You will need to include this screenshot as part of your project submission.</strong></p>
 
