@@ -140,42 +140,45 @@ kafka-server-start /etc/kafka/server.properties
 	</li>
 </ul>
 
-<h2>Step 1</h2>
-
-<ul>
-	<li>The first step is to build a simple Kafka server.</li>
-	<li>Complete the code for the server in&nbsp;<code>producer_server.py</code>&nbsp;and&nbsp;<code>kafka_server.py</code>.</li>
-</ul>
-
-<p><strong>Local Environment</strong></p>
-
-<ul>
-	<li>
-	<p>To see if you correctly implemented the server, use the command below to see your output&nbsp;</p>
-
-	<pre>
-<code>
-bin/kafka-console-consumer.sh --bootstrap-server localhost:&lt;your-port-number&gt; --topic &lt;your-topic-name&gt; --from-beginning&nbsp;
-</code></pre>
-	</li>
-</ul>
-
-<h4><strong>Workspace Environment</strong></h4>
-
-<ul>
-	<li>Check what topics exist use this:&nbsp;</li>
-</ul>
-
-<p style="margin-left:40px"><code>/usr/bin/kafka-topics --list --zookeeper localhost:2181</code></p>
-
+<h1><a id="user-content-step-1" class="anchor" href="https://github.com/fogofortitude/SF-Crime-Statistics-with-Spark#step-1" aria-hidden="true"></a>Step 1</h1>
 <p>&nbsp;</p>
-
 <ul>
-	<li>To start kafka-consumer-console, use this command</li>
+<li>The first step is to build a simple Kafka server.</li>
+<li>Complete the code for the server in&nbsp;<code>producer_server.py</code>&nbsp;and&nbsp;<code>kafka_server.py</code>.</li>
 </ul>
-
-<p style="margin-left:40px"><code>kafka-console-consumer --bootstrap-server localhost:9092 --topic com.sf.police.event.calls --whitelist com.sf.police.event.calls --from-beginning</code></p>
-
+<p><span style="color: #808080;"><strong>Local Environment<br /></strong>To see if you correctly implemented the server, use the command below to see your output&nbsp;<code>
+</code></span></p>
+<blockquote>
+<p><span style="color: #808080;"><code>bin/kafka-console-consumer.sh --bootstrap-server localhost:&lt;your-port-number&gt; --topic &lt;your-topic-name&gt; --from-beginning&nbsp;</code></span></p>
+</blockquote>
+<h4><a id="user-content-workspace-environment-1" class="anchor" href="https://github.com/fogofortitude/SF-Crime-Statistics-with-Spark#workspace-environment-1" aria-hidden="true"></a><strong>Workspace Environment</strong></h4>
+<ul>
+<li>setup the Udacity Workspace
+<blockquote>./start.sh</blockquote>
+</li>
+<li>started the zookeeper server
+<blockquote>/usr/bin/zookeeper-server-start /etc/kafka/zookeeper.properties</blockquote>
+</li>
+<li>start the kafka server<br />
+<blockquote>kafka-server-start /etc/kafka/server.properties</blockquote>
+</li>
+<li>Create Topic <br />
+<blockquote><code>kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic topic com.sf.police.event.calls</code></blockquote>
+</li>
+<li>Checked the topic "com.sf.police.event.calls" now exists<br />
+<blockquote>/usr/bin/kafka-topics --list --zookeeper localhost:2181 --topic com.sf.police.event.calls</blockquote>
+</li>
+<li>Run kafka-console-producer with Dummy JSON values<br />
+<blockquote>kafka-console-producer --broker-list localhost:9092 --topic com.sf.police.event.calls</blockquote>
+<p><em>{ "crime_id": "183653763", "original_crime_type_name": "Traffic Stop", "report_date": "2018-12-31T00:00:00.000","call_date": "2018-12-31T00:00:00.000","offense_date": "2018-12-31T00:00:00.000","call_time": "23:57","call_date_time": "2018-12-31T23:57:00.000","disposition": "ADM","address": "Geary Bl/divisadero St","city": "San Francisco","state": "CA","agency_id": "1","address_type": "Intersection","common_location": "" }</em></p>
+<em>{"crime_id":"183653745","original_crime_type_name":"Audible Alarm","report_date":"2018-12-31T00:00:00.000","call_date":"2018-12-31T00:00:00.000","offense_date":"2018-12-31T00:00:00.000","call_time":"23:47","call_date_time":"2018-12-31T23:47:00.000","disposition":"PAS","address":"1900 Block Of 18th Av","city":"San Francisco","state":"CA","agency_id":"1","address_type":"Premise Address","common_location":""}</em><br /><br /></li>
+<li><span style="background-color: #ccffcc;"><span style="color: #008000;"><strong>TIP:</strong> use this to tool to convert multiline JSON layout to single line</span> https://tools.knowledgewalls.com/online-multiline-to-single-line-converter</span></li>
+<li>Run kafka-console-consumer
+<blockquote><code>kafka-console-consumer --bootstrap-server localhost:9092 --topic com.sf.police.event.calls --from-beginning</code></blockquote>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 <p>&nbsp;</p>
 
 <p><strong>Take a screenshot of your kafka-consumer-console output. You will need to include this screenshot as part of your project submission.</strong></p>
