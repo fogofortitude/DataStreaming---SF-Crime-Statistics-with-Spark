@@ -53,12 +53,12 @@ def run_spark_job(spark):
     # Take only value and convert/CAST it to String
     # Chose to use selectExpr as it is considered to be easy to use for casing Data Types
     # Reference: https://medium.com/analytics-vidhya/spark-select-and-select-expr-deep-dive-d63ef5e04c87
-    # FOR CONSIDERATION: Renameing Alias from DF to something more descriptived
+    
     kafka_df = df.selectExpr("CAST(value as STRING)")
 
     service_table = kafka_df\
-        .select(psf.from_json(psf.col('value'), schema).alias("DF"))\
-        .select("DF.*")
+        .select(psf.from_json(psf.col('value'), schema).alias("POLICE_SERVICE_CALLS"))\
+        .select("POLICE_SERVICE_CALLS.*")
 
     # TODO select original_crime_type_name and disposition
     
@@ -69,29 +69,48 @@ def run_spark_job(spark):
     # So I have used withWatermark() to specify how long the solution would wait for late events. 
     # Reference: https://towardsdatascience.com/watermarking-in-spark-structured-streaming-9e164f373e9
     
+    # note: the col() function Returns a Column based on the given column name
+    
+    
     distinct_table = service_table \
-        .select("original_crime_type_name", 
-                "call_date_time","disposition")
+        .select(
+        psf.col("original_crime_type_name"),
+        psf.col("disposition"),
+        psf.to_timestamp(psf.col("call_date_time")).alias("call_date_time")
+    ) 
+    distinct_table.printSchema()
 
     # count the number of original crime type
     # have used the pyspark function window() to calculate over the group of rows
     
     agg_df = distinct_table \
+        .select(
+        distinct_table.original_crime_type_name,
+        distinct_table.disposition,
+        distinct_table.call_date_time
+    ) \ 
         .withWatermark("call_datetime", "60 minutes") \
         .groupBy(
-            distinct_table.original_crime_type_name, 
-            psf.window("distinct_table.call_date_time", "60 minutes")).count()
+        psf.col("original_crime_type_name"),
+        psf.window(distinct_table.call_date_time, "10 minutes", "5 minutes")
+    ) \
+        .count()
+              
 
     # TODO Q1. Submit a screen shot of a batch ingestion of the aggregation
     # TODO write output stream
     query = agg_df \
+        .writeStream \
+        .format("console") \
+        .outputMode("complete") \
+        .start()
 
 
     # TODO attach a ProgressReporter
     query.awaitTermination()
 
     # TODO get the right radio code json path
-    radio_code_json_filepath = ""
+    radio_code_json_filepath = "radio_code.json"
     radio_code_df = spark.read.json(radio_code_json_filepath)
 
     # clean up your data so that the column names match on radio_code_df and agg_df
@@ -101,8 +120,12 @@ def run_spark_job(spark):
     radio_code_df = radio_code_df.withColumnRenamed("disposition_code", "disposition")
 
     # TODO join on disposition column
-    join_query = agg_df.
-
+    join_query = agg_df \
+        .join(radio_code_df, "disposition") \
+        .writeStream \
+        .format("console") \
+        .queryName("join") \
+        .start()
 
     join_query.awaitTermination()
 
