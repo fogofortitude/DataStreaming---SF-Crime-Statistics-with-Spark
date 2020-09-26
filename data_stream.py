@@ -95,6 +95,8 @@ def run_spark_job(spark):
         psf.window(distinct_table.call_date_time, "10 minutes", "5 minutes")
     ) \
         .count()
+    
+    # look at replacing window() with partitioning 
               
 
     # TODO Q1. Submit a screen shot of a batch ingestion of the aggregation
