@@ -6,7 +6,26 @@ import pyspark.sql.functions as psf
 
 
 # TODO Create a schema for incoming resources
+# To create a PySpark Dataframe we have to specify its structure using StructType and StructField classes
+# A StructType is a collection of StructFields used to define the column name, data type and flag for nullable
+# Alternatively; I could have used df2.schema.json() to create the schema form the JSON file; 
+# but as I believe there are not too many columns and my DataFrame is not changing I wont
+# Reference: https://sparkbyexamples.com/pyspark/pyspark-structtype-and-structfield/
 schema = StructType([
+    StructField("crime_id", StringType(), True),
+    StructField("original_crime_type_name", StringType(), True),
+    StructField("report_date", StringType(), True),
+    StructField("call_date", StringType(), True),
+    StructField("offense_date", StringType(), True),
+    StructField("call_time", StringType(), True),
+    StructField("call_date_time", TimestampType(), True),
+    StructField("disposition", StringType(), True),
+    StructField("address", StringType(), True),
+    StructField("city", StringType(), True),
+    StructField("state", StringType(), True),
+    StructField("agency_id", StringType(), True),
+    StructField("address_type", StringType(), True),
+    StructField("common_location", StringType(), True)
 ])
 
 def run_spark_job(spark):
@@ -16,23 +35,52 @@ def run_spark_job(spark):
     # set up correct bootstrap server and port
     df = spark \
         .readStream \
+        .format("kafka")\
+        .option("kafka.bootstrap.servers","localhost:9092")\
+        .option("subscribe","com.sf.police.event.calls")\
+        .option("startingOffsets","earliest")\
+        .option("maxRatePerPartition",1000)\
+        .option("maxOffsetsPerTrigger",2000)\
+        .option("stopGracefullyOnShutdown", "true") \
+        .load()
+  
 
     # Show schema for the incoming resources for checks
+    # With the printSchema() function, we can see that the schema has been taken into consideration:
     df.printSchema()
 
     # TODO extract the correct column from the kafka input resources
-    # Take only value and convert it to String
-    kafka_df = df.selectExpr("")
+    # Take only value and convert/CAST it to String
+    # Chose to use selectExpr as it is considered to be easy to use for casing Data Types
+    # Reference: https://medium.com/analytics-vidhya/spark-select-and-select-expr-deep-dive-d63ef5e04c87
+    # FOR CONSIDERATION: Renameing Alias from DF to something more descriptived
+    kafka_df = df.selectExpr("CAST(value as STRING)")
 
     service_table = kafka_df\
         .select(psf.from_json(psf.col('value'), schema).alias("DF"))\
         .select("DF.*")
 
     # TODO select original_crime_type_name and disposition
-    distinct_table = 
+    
+    # In distributed and networked systems, there’s always a chance for disruption. 
+    # So it is not guaranteed that the data will arrive to the Stream Processing Engine in the order they were created. 
+    # To therefore handle the risk of Out-of-Order data and be able to run in the event of late arriving events; 
+    # I want to preserve the state of events but not so long it consumes too much of systems resource. 
+    # So I have used withWatermark() to specify how long the solution would wait for late events. 
+    # Reference: https://towardsdatascience.com/watermarking-in-spark-structured-streaming-9e164f373e9
+    
+    distinct_table = service_table \
+        .select("original_crime_type_name", 
+                "call_date_time","disposition")
 
     # count the number of original crime type
-    agg_df = 
+    # have used the pyspark function window() to calculate over the group of rows
+    
+    agg_df = distinct_table \
+        .withWatermark("call_datetime", "60 minutes") \
+        .groupBy(
+            distinct_table.original_crime_type_name, 
+            psf.window("distinct_table.call_date_time", "60 minutes")).count()
 
     # TODO Q1. Submit a screen shot of a batch ingestion of the aggregation
     # TODO write output stream
