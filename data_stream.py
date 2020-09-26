@@ -82,7 +82,7 @@ def run_spark_job(spark):
 
     # count the number of original crime type
     # have used the pyspark function window() to calculate over the group of rows
-    
+    # https://databricks.com/blog/2015/07/15/introducing-window-functions-in-spark-sql.html
     agg_df = distinct_table \
         .select(
         distinct_table.original_crime_type_name,
