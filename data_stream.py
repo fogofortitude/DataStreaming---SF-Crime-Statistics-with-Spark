@@ -82,27 +82,20 @@ def run_spark_job(spark):
 
     # count the number of original crime type
     # have used the pyspark function window() to calculate over the group of rows
-    # https://databricks.com/blog/2015/07/15/introducing-window-functions-in-spark-sql.html
-    agg_df = distinct_table \
-        .select(
-        distinct_table.original_crime_type_name,
-        distinct_table.disposition,
-        distinct_table.call_date_time
-    ) \ 
-        .withWatermark("call_datetime", "60 minutes") \
-        .groupBy(
-        psf.col("original_crime_type_name"),
-        psf.window(distinct_table.call_date_time, "10 minutes", "5 minutes")
-    ) \
+    
+    agg_df = distinct_table\
+        .groupBy("original_crime_type_name", 
+                 psf.window("call_date_time", "60 minutes"))\
         .count()
     
-    # look at replacing window() with partitioning 
+    # look at understanding window() function better
               
 
     # TODO Q1. Submit a screen shot of a batch ingestion of the aggregation
     # TODO write output stream
     query = agg_df \
         .writeStream \
+        .queryName("agg_query")\
         .format("console") \
         .outputMode("complete") \
         .start()
