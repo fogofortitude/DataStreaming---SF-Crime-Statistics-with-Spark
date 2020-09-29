@@ -218,6 +218,8 @@ kafka-server-start /etc/kafka/server.properties
 	<li>Do a spark-submit using this command:&nbsp;<code>spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.3.4 --master local[*] data_stream.py</code>.</li>
 	<li>Take a screenshot of your progress reporter after executing a Spark job.&nbsp;<strong>You will need to include this screenshot as part of your project submission.</strong></li>
 	<li>Take a screenshot of the Spark Streaming UI as the streaming continues.&nbsp;<strong>You will need to include this screenshot as part of your project submission.</strong></li>
+	Run the following to view Spark UI
+	<blockquote> wget "http://localhost:3000" </blockquote>
 </ul>
 
 <h2>Step 3</h2>
