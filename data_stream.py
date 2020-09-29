@@ -46,10 +46,7 @@ def run_spark_job(spark):
         .option("maxOffsetsPerTrigger",200)\
         .option("stopGracefullyOnShutdown", "true") \
         .load()
-    
-    print("-------------------------------------------")
-    print(df.count())
-    print("-------------------------------------------")
+   
     
     # Show schema for the incoming resources for checks
     # With the printSchema() function, we can see that the schema has been taken into consideration:
@@ -84,10 +81,8 @@ def run_spark_job(spark):
         psf.col("disposition"),
         psf.to_timestamp(psf.col("call_date_time")).alias("call_date_time")
     ) 
-    
-    print("-------------------------------------------")
+ 
     distinct_table.printSchema()
-    print("-------------------------------------------")
     
     # count the number of original crime type
     # have used the pyspark function window() to calculate over the group of rows
@@ -114,9 +109,6 @@ def run_spark_job(spark):
         .outputMode("complete") \
         .start()
     
-    print("-------------------------------------------")
-    print(agg_df)
-    print("-------------------------------------------")
 
     # TODO attach a ProgressReporter
     query.awaitTermination()
