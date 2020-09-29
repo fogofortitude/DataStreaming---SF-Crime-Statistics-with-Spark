@@ -79,8 +79,11 @@ def run_spark_job(spark):
         psf.col("disposition"),
         psf.to_timestamp(psf.col("call_date_time")).alias("call_date_time")
     ) 
+    
+    print("-------------------------------------------")
     distinct_table.printSchema()
-
+    print("-------------------------------------------")
+    
     # count the number of original crime type
     # have used the pyspark function window() to calculate over the group of rows
     
@@ -100,7 +103,10 @@ def run_spark_job(spark):
         .format("console") \
         .outputMode("complete") \
         .start()
-
+    
+    print("-------------------------------------------")
+    print(agg_df)
+    print("-------------------------------------------")
 
     # TODO attach a ProgressReporter
     query.awaitTermination()
@@ -134,10 +140,12 @@ if __name__ == "__main__":
         .builder \
         .master("local[*]") \
         .appName("KafkaSparkStructuredStreaming") \
+        .config("spark.ui.port", 3000) \
         .getOrCreate()
 
+    print("-------------------------------------------")
     logger.info("Spark started")
-
+    print("-------------------------------------------")
     run_spark_job(spark)
 
     spark.stop()
