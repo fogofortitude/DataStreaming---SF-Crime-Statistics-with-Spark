@@ -33,6 +33,8 @@ def run_spark_job(spark):
     # TODO Create Spark Configuration
     # Create Spark configurations with max offset of 200 per trigger
     # set up correct bootstrap server and port
+    # maxOffsetsPerTrigger = the number of records to fetch per trigger
+    # maxRatePerPartition = number of records per second at which data will be read from each Kafka partition
     # REFERENCE: https://spark.apache.org/docs/latest/configuration.html
     df = spark \
         .readStream \
@@ -44,8 +46,11 @@ def run_spark_job(spark):
         .option("maxOffsetsPerTrigger",200)\
         .option("stopGracefullyOnShutdown", "true") \
         .load()
-  
-
+    
+    print("-------------------------------------------")
+    print(df.count())
+    print("-------------------------------------------")
+    
     # Show schema for the incoming resources for checks
     # With the printSchema() function, we can see that the schema has been taken into consideration:
     df.printSchema()
@@ -97,6 +102,11 @@ def run_spark_job(spark):
 
     # TODO Q1. Submit a screen shot of a batch ingestion of the aggregation
     # TODO write output stream
+    # .writeStream = starts the streaming queries
+    # .queryname = the table name
+    # .format("console") = Prints the output to the console/stdout every time there is a trigger. Used for debugging purposes on low data volumes
+    # .outputMode("complete") = prints the complete set of counts to the console each time it is updated
+    
     query = agg_df \
         .writeStream \
         .queryName("agg_query")\
@@ -136,6 +146,11 @@ if __name__ == "__main__":
     logger = logging.getLogger(__name__)
 
     # TODO Create Spark in Standalone mode
+    # .master = the master URL of the cluster is local with as many worker threads as logical cores on the machine.
+    # .appName = set name of the application shown in the Spark Web UI to "KafkaSparkStructuredStreaming"
+    # .getOrCreate = Gets an existing SparkSession or, if there is no existing one, creates a new one based on the options set in this builder.
+    # spark.ui.port 3000 - I sourced from a Udacity Forum Thread - 
+    # REFERENCE: https://spark.apache.org/docs/1.2.0/configuration.html
     spark = SparkSession \
         .builder \
         .master("local[*]") \
@@ -146,6 +161,7 @@ if __name__ == "__main__":
     print("-------------------------------------------")
     logger.info("Spark started")
     print("-------------------------------------------")
+    
     run_spark_job(spark)
 
     spark.stop()
