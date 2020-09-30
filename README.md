@@ -305,7 +305,7 @@ kafka-server-start /etc/kafka/server.properties
 </table>
 <p>&nbsp;</p>
 
-<p><img src="https://github.com/fogofortitude/SF-Crime-Statistics-with-Spark/blob/master/STEP-2-Output/Config_v1/less_optimal.png" alt="file" width="800" height="300" />&nbsp;</p>
+<p><img src="https://github.com/fogofortitude/SF-Crime-Statistics-with-Spark/blob/master/STEP-2-Output/Config_v1/less_optimal.png" alt="file" width="800" height="400" />&nbsp;</p>
 
 <p style="padding-left: 30px;">&nbsp;<strong>Screenshot 2 - Spark Session Properties</strong></p>
 <table style="margin-left: 30px;">
@@ -333,7 +333,7 @@ kafka-server-start /etc/kafka/server.properties
 </tbody>
 </table>
 
-<p><img src="https://github.com/fogofortitude/SF-Crime-Statistics-with-Spark/blob/master/STEP-2-Output/config_v2/more_optimal.png" alt="file" width="800" height="300" />&nbsp;</p>
+<p><img src="https://github.com/fogofortitude/SF-Crime-Statistics-with-Spark/blob/master/STEP-2-Output/config_v2/more_optimal.png" alt="file" width="800" height="400" />&nbsp;</p>
 
 <p style="padding-left: 30px;">&nbsp;</p>
 <p style="padding-left: 30px;">&nbsp;</p>
