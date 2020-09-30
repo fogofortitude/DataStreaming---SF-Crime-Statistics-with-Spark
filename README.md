@@ -223,14 +223,59 @@ kafka-server-start /etc/kafka/server.properties
 </ul>
 
 <h2>Step 3</h2>
-
-<p>Write the answers to these questions in the README.md doc of your GitHub repo:</p>
-
 <ol>
-	<li>
-	<p>How did changing values on the SparkSession property parameters affect the throughput and latency of the data?</p>
-	</li>
-	<li>
-	<p>What were the 2-3 most efficient SparkSession property key/value pairs? Through testing multiple variations on values, how can you tell these were the most optimal?</p>
-	</li>
+<li>
+<p><strong> did changing values on the SparkSession property parameters affect the throughput and latency of the data?</strong></p>
+<ul>
+<li>Yes, altering them impacted Time it Tooks to Complete Jobs / Tasks</li>
+<li>Altering the number of cores used ie master("local[*]") had the most significant impact. It seemed that by reducing the number of cores reduced the processing of the 200 Tasks I had it process. This I believe may have been the result of reduced Shuffle Read and Shuffle Write.&nbsp;</li>
+<li>Altering maxRatePerPartition and&nbsp;maxOffsetsPerTrigger also seemed to affect throughput and latency.&nbsp;</li>
+</ul>
+</li>
+<li>
+<p><strong>What were the 2-3 most efficient SparkSession property key/value pairs?&nbsp;</strong><strong>Through testing multiple variations on values, how can you tell these were the most optimal?</strong></p>
+<table style="width: 275.333px;">
+<tbody>
+<tr>
+<td style="width: 151px;"><strong>Property</strong></td>
+<td style="width: 27px;"><strong>Value</strong></td>
+<td style="width: 85.3333px;">&nbsp;</td>
+</tr>
+<tr>
+<td style="width: 151px;">maxRatePerPartition</td>
+<td style="width: 27px;">10</td>
+<td style="width: 85.3333px;">&nbsp;</td>
+</tr>
+<tr>
+<td style="width: 151px;">maxOffsetsPerTrigger</td>
+<td style="width: 27px;">100</td>
+<td style="width: 85.3333px;">&nbsp;</td>
+</tr>
+<tr>
+<td style="width: 151px;">master</td>
+<td style="width: 27px;">local[1]</td>
+<td style="width: 85.3333px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</li>
 </ol>
+<p style="padding-left: 30px;">From looking at Sparks Web UI - Executors Tab it was evident from looking at the following columns:&nbsp;</p>
+<table style="width: 205px; margin-left: 30px;">
+<tbody style="padding-left: 30px;">
+<tr style="padding-left: 30px;">
+<td style="width: 153px; padding-left: 30px;"><strong>Column</strong></td>
+</tr>
+<tr style="padding-left: 30px;">
+<td style="width: 153px; padding-left: 30px;">Task Time</td>
+</tr>
+<tr style="padding-left: 30px;">
+<td style="width: 153px; padding-left: 30px;">Shuffle Read</td>
+</tr>
+<tr style="padding-left: 30px;">
+<td style="width: 153px; padding-left: 30px;">Shuffle Write</td>
+</tr>
+</tbody>
+</table>
+<p style="padding-left: 30px;">&nbsp;</p>
+<p style="padding-left: 30px;">&nbsp;</p>
