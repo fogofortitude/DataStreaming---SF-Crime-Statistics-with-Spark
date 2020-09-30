@@ -192,9 +192,8 @@ kafka-server-start /etc/kafka/server.properties
 </ul>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p><strong>Take a screenshot of your kafka-consumer-console output. You will need to include this screenshot as part of your project submission.</strong></p>
-<p><a href="https://camo.githubusercontent.com/aef6753be130a0dd9e6002030f7c97c5d163c7bb/68747470733a2f2f766964656f2e756461636974792d646174612e636f6d2f746f706865722f323031392f4175677573742f35643531396266635f73637265656e2d73686f742d323031392d30382d31322d61742d31302e30332e34312d616d2f73637265656e2d73686f742d323031392d30382d31322d61742d31302e30332e34312d616d2e706e67" rel="nofollow"><img src="https://camo.githubusercontent.com/aef6753be130a0dd9e6002030f7c97c5d163c7bb/68747470733a2f2f766964656f2e756461636974792d646174612e636f6d2f746f706865722f323031392f4175677573742f35643531396266635f73637265656e2d73686f742d323031392d30382d31322d61742d31302e30332e34312d616d2f73637265656e2d73686f742d323031392d30382d31322d61742d31302e30332e34312d616d2e706e67" alt="" width="600" height="300" /></a></p>
-<p><strong>Sample Kafka Consumer Console Output</strong></p>
+
+<p><strong>Sample Kafka Consumer Console Output (Screenshot)</strong></p>
 	<p><img src="https://github.com/fogofortitude/SF-Crime-Statistics-with-Spark/blob/master/STEP-1-Output/step1-kafka-console-producer-results.PNG" alt="file" width="500" height="300" />&nbsp;</p>
 <code></code></article>
 </div>
