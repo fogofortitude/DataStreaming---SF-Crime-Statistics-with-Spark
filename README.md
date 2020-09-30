@@ -277,5 +277,59 @@ kafka-server-start /etc/kafka/server.properties
 </tr>
 </tbody>
 </table>
+<p style="padding-left: 30px;">The screenshots show the differences in performance between two separate Spark Session configurations</p>
+<p style="padding-left: 30px;">&nbsp;<strong>Screenshot 2 - Spark Session Properties</strong></p>
+<table style="margin-left: 30px;">
+<tbody>
+<tr>
+<td><strong>Property</strong></td>
+<td><strong>Value</strong></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>maxRatePerPartition</td>
+<td>100</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>maxOffsetsPerTrigger</td>
+<td>200</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>master</td>
+<td>local[*]</td>
+<td style="padding-left: 30px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&lt;IMAGE HERE&gt;&nbsp;</p>
+<p style="padding-left: 30px;">&nbsp;<strong>Screenshot 2 - Spark Session Properties</strong></p>
+<table style="margin-left: 30px;">
+<tbody>
+<tr>
+<td><strong>Property</strong></td>
+<td><strong>Value</strong></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>maxRatePerPartition</td>
+<td>10</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>maxOffsetsPerTrigger</td>
+<td>100</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>master</td>
+<td>local[1]</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>&lt;IMAGE HERE&gt;&nbsp;</p>
 <p style="padding-left: 30px;">&nbsp;</p>
 <p style="padding-left: 30px;">&nbsp;</p>
