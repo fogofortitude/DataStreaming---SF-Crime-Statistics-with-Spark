@@ -41,6 +41,8 @@ def run_spark_job(spark):
         .format("kafka")\
         .option("kafka.bootstrap.servers","localhost:9092")\
         .option("subscribe","com.sf.police.event.calls")\
+        .option("streaming.backpressure.enabled", "true")\
+        .option("spark.streaming.ui.retainedBatches","1000")\
         .option("startingOffsets","earliest")\
         .option("maxRatePerPartition",100)\
         .option("maxOffsetsPerTrigger",200)\
@@ -148,6 +150,7 @@ if __name__ == "__main__":
         .master("local[*]") \
         .appName("KafkaSparkStructuredStreaming") \
         .config("spark.ui.port", 3000) \
+        .spark.dynamicAllocation.enabled("true") \
         .getOrCreate()
 
     print("-------------------------------------------")
